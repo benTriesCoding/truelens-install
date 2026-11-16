@@ -1,0 +1,143 @@
+<!doctype html>
+<!-- docs/install/index.html — the pilot's install page (P4.2, D-037). Korean first, English second.
+     Hosted as the public install page; the QR poster (poster.html, poster.pdf) points here.
+     The APK link is set once, in APK_URL below. -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TrueLens 설치하기</title>
+<meta name="description" content="TrueLens 안드로이드 앱 설치 안내 — KAIST 시범 운영">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f7f9;
+    --border: #e3e5ea;
+    --text: #14171c;
+    --text-2: #4b5260;
+    --accent: #3451d1;
+    --accent-pressed: #2a41a8;
+    --accent-subtle: #e9edff;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Pretendard, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    word-break: keep-all;
+  }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 48px; }
+  .brand { font-weight: 700; font-size: 32px; letter-spacing: -0.5px; margin: 0; }
+  .brand span { color: var(--accent); }
+  .tagline { font-weight: 600; font-size: 20px; margin: 4px 0 12px; letter-spacing: -0.2px; }
+  .lead { color: var(--text-2); margin: 0 0 16px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; padding: 0; list-style: none; }
+  .chips li { background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 4px 12px; font-size: 14px; color: var(--text-2); }
+  .notice { display: none; background: var(--accent-subtle); border-radius: 12px; padding: 12px 16px; margin: 0 0 16px; font-size: 15px; }
+  .notice.show { display: block; }
+  .download {
+    display: block; text-align: center; text-decoration: none;
+    background: var(--accent); color: #fff; font-weight: 700; font-size: 18px;
+    border-radius: 14px; padding: 18px 16px; margin: 0 0 8px;
+  }
+  .download:active { background: var(--accent-pressed); }
+  .download small { display: block; font-weight: 400; font-size: 13px; opacity: 0.9; margin-top: 2px; }
+  .fine { color: var(--text-2); font-size: 14px; margin: 0 0 32px; text-align: center; }
+  h2 { font-size: 18px; font-weight: 600; margin: 32px 0 12px; letter-spacing: -0.1px; }
+  ol.steps { list-style: none; counter-reset: step; margin: 0; padding: 0; display: grid; gap: 12px; }
+  ol.steps li {
+    counter-increment: step; position: relative;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 12px 16px 12px 52px;
+  }
+  ol.steps li::before {
+    content: counter(step); position: absolute; left: 14px; top: 12px;
+    width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: #fff;
+    font-weight: 700; font-size: 14px; display: grid; place-items: center;
+  }
+  ol.steps b { font-weight: 600; }
+  .q { color: var(--text-2); font-size: 14px; display: block; margin-top: 2px; }
+  ul.plain { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+  hr { border: 0; border-top: 1px solid var(--border); margin: 40px 0 0; }
+  details { margin-top: 24px; }
+  summary { cursor: pointer; font-weight: 600; font-size: 16px; padding: 8px 0; }
+  details[open] summary { margin-bottom: 8px; }
+  details p, details li { color: var(--text-2); font-size: 15px; }
+  footer { color: var(--text-2); font-size: 13px; margin-top: 32px; }
+</style>
+</head>
+<body>
+<main>
+  <h1 class="brand">True<span>Lens</span></h1>
+  <p class="tagline">성분표를 대신 읽어드립니다</p>
+  <p class="lead">장 볼 때 바코드를 찍으면 나트륨·당류·단백질이 같은 종류 제품 가운데 어디쯤인지, 내 알레르기 성분이 표시돼 있는지 보여 줘요. 2~4개를 찍으면 나란히 비교해요. 고르는 건 당신이에요.</p>
+  <ul class="chips" aria-label="안내">
+    <li>안드로이드 전용</li>
+    <li>무료</li>
+    <li>계정 없음</li>
+    <li>KAIST 시범 운영</li>
+  </ul>
+
+  <p class="notice" id="not-android">안드로이드 휴대폰에서 이 페이지를 열어 주세요. 아이폰은 아직 지원하지 않아요.</p>
+
+  <a class="download" id="apk" href="#">TrueLens 설치 파일 받기<small>APK · 안드로이드</small></a>
+  <p class="fine">Play 스토어 밖에서 받는 앱이라 설치할 때 안드로이드가 몇 번 물어봐요. 아래 순서대로 하면 돼요. 버튼 이름은 휴대폰마다 조금 다를 수 있어요.</p>
+
+  <h2>설치 순서</h2>
+  <ol class="steps">
+    <li><b>파란 버튼</b>을 눌러 파일을 받아요.<span class="q">'이 파일은 기기를 손상시킬 수 있습니다'라고 나오면 <b>무시하고 다운로드</b>를 눌러요.</span></li>
+    <li>다운로드가 끝나면 <b>열기</b>를 눌러요.<span class="q">놓쳤다면 <b>내 파일 → 다운로드</b>에서 truelens.apk를 눌러요.</span></li>
+    <li>'출처를 알 수 없는 앱'이라고 나오면 <b>설정</b>을 눌러 <b>이 출처 허용</b>을 켜고, 뒤로 돌아와요.</li>
+    <li><b>설치</b>를 눌러요.<span class="q">Play 프로텍트 경고가 나오면 <b>세부정보 더보기 → 무시하고 설치</b>를 눌러요. 스토어 밖에서 받은 앱이라 나오는 경고예요.</span></li>
+    <li><b>열기</b>를 누르고 카메라를 허용하면 바로 바코드를 찍을 수 있어요.</li>
+  </ol>
+
+  <h2>업데이트</h2>
+  <ul class="plain">
+    <li>고친 내용은 앱을 열 때 저절로 받아요. 다시 설치하지 않아도 돼요.</li>
+    <li>드물게 새로 설치해야 할 때는 시범 운영팀이 알려 드려요.</li>
+  </ul>
+
+  <h2>보내는 정보</h2>
+  <ul class="plain">
+    <li>계정이 없어요. 이름, 연락처, 위치는 보내지 않아요.</li>
+    <li>알레르기 설정과 검색어는 휴대폰 밖으로 나가지 않아요.</li>
+    <li>앱을 쓰는 동안 익명 사용 기록을 보내요. 무엇을 보내는지는 앱의 <b>계산 방법 → 주고받는 정보</b>에 모두 적혀 있어요.</li>
+  </ul>
+
+  <h2>설치가 안 되면</h2>
+  <ul class="plain">
+    <li>'앱이 설치되지 않았습니다': 예전 TrueLens를 지우고(아이콘을 길게 눌러 <b>제거</b>) 다시 설치해요.</li>
+    <li>'패키지를 파싱하는 중 문제': 파일이 덜 받아졌어요. 다운로드에서 지우고 다시 받아요.</li>
+    <li>그래도 안 되면 시범 운영팀에게 이 화면을 보여 주세요.</li>
+  </ul>
+
+  <details lang="en">
+    <summary>English</summary>
+    <p><b>TrueLens</b> reads the food label for you: scan a barcode and see where its sodium, sugars and protein sit among products of the same kind, and whether your allergens are listed. Scan two to four to compare them side by side. You decide. Android only · free · no account · KAIST pilot.</p>
+    <ol>
+      <li>Tap the blue button to download the file. If Chrome warns that the file may be harmful, tap <b>Download anyway</b>.</li>
+      <li>When it has downloaded, tap <b>Open</b> (or find truelens.apk in <b>Files → Downloads</b>).</li>
+      <li>If Android blocks apps from this source, tap <b>Settings</b>, turn on <b>Allow from this source</b>, and go back.</li>
+      <li>Tap <b>Install</b>. If Play Protect warns you, tap <b>More details → Install anyway</b>: the warning appears because the app does not come from the Play Store.</li>
+      <li>Tap <b>Open</b> and allow the camera.</li>
+    </ol>
+    <p>Fixes arrive by themselves when you open the app. There is no account; no name, contact or location is sent; your allergen settings and searches stay on the phone. The app sends anonymous usage records, all listed in <b>How we count → What the app receives and sends</b>.</p>
+  </details>
+
+  <hr>
+  <footer>TrueLens 시범 운영 · KAIST · 2026</footer>
+</main>
+<script>
+  // The newest pilot APK: a stable link that always serves the latest release's truelens.apk (docs/RELEASE.md §9).
+  var APK_URL = "https://github.com/benTriesCoding/truelens-install/releases/latest/download/truelens.apk";
+  document.getElementById("apk").href = APK_URL;
+  if (!/Android/i.test(navigator.userAgent)) document.getElementById("not-android").classList.add("show");
+</script>
+</body>
+</html>
